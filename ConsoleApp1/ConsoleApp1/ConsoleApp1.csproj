@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PlatformTarget>x64</PlatformTarget>
+		<Platforms>x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<Optimize>False</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="IKVM.Image.JRE" Version="8.7.1" />
+		<PackageReference Include="IKVM" Version="8.7.1" />
+		<IkvmReference Include="..\..\TestApplication\target\TestApplication-1.0-SNAPSHOT.jar">
+			<AssemblyName>org.example</AssemblyName>
+			<AssemblyVersion>1.0.0.0</AssemblyVersion>
+			<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+			<DisableAutoAssemblyName>true</DisableAutoAssemblyName>
+			<DisableAutoAssemblyVersion>true</DisableAutoAssemblyVersion>
+			<FallbackAssemblyName>MyAssemblyFallback</FallbackAssemblyName>
+			<FallbackAssemblyVersion>3.1.0.0</FallbackAssemblyVersion>
+			<Debug>true</Debug>
+		</IkvmReference>
+	</ItemGroup>
+
+</Project>
